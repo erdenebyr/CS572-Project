@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create Admin schema
+// Creating admin schema
 var AdminSchema = new Schema({
     username: String,
-    password: String
+    password: String,
+    email: String
 })
 
 

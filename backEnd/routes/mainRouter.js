@@ -6,12 +6,11 @@ const actionController = require('../controllers/actionController')
 const homeController = require('../controllers/homeController')
 const adminController = require('../controllers/adminController')
 const loginController = require('../controllers/loginController')
-const userController = require('../controllers/userController')
 const { parse_json } = require('../middlewares/parseBody');
 
 router.post('/action', checkAuth, parse_json, actionController.doAction);
 router.post('/signup', parse_json, loginController.signup);
-router.get('/login', parse_json, loginController.login);
+router.post('/login', parse_json, loginController.login);
 router.get('/home', checkAuth, parse_json, homeController.getHome);
 router.get('/search/:username', checkAuth, parse_json, homeController.searchUser);
 
