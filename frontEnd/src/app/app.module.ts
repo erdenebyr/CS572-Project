@@ -21,8 +21,12 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
+
 
 @NgModule({
   declarations: [
@@ -49,6 +53,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatSidenavModule,
     MatMenuModule,
     MatBadgeModule,
+    MatTooltipModule,
     BrowserAnimationsModule
   ],
   providers: [],
