@@ -5,7 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css']
 })
+
+
+
 export class EditProfileComponent implements OnInit {
+
+  
+   
 
   constructor() { }
 

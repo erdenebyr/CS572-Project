@@ -22,7 +22,7 @@
     <mat-drawer-container class="home-container">
         <mat-drawer mode="side" opened class="side-container">
             <p><button mat-button>Home</button></p>
-            <p><button mat-button>Profile</button></p>
+            <p><button mat-button (click)="goToProfile()">Profile</button></p>
         </mat-drawer>
         <mat-drawer-content>
             <div class="mainContent">
