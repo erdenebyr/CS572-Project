@@ -21,4 +21,7 @@ export class HomeComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+  goToProfile(){
+    this.router.navigate(['/profile']);
+  }
 }
