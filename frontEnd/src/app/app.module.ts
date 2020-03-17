@@ -22,9 +22,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FriendComponent } from './friend/friend.component';
 
 
 
@@ -36,7 +38,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     HomeComponent,
     AlertComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatMenuModule,
     MatBadgeModule,
     MatTooltipModule,
+    MatTableModule,
     BrowserAnimationsModule
   ],
   providers: [],
