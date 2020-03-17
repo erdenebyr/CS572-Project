@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService, AuthenticationService } from '../_services';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -16,9 +17,9 @@ export class RegisterComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private snackBar: MatSnackBar
     ) {
-        // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
@@ -26,23 +27,21 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            email: ['', Validators.required],
+            dateofbirth: ['', [Validators.required]]
         });
+        console.log(this.registerForm.value);
     }
 
-    // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
-        // reset alerts on submit
         this.alertService.clear();
 
-        // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
         }
@@ -52,19 +51,26 @@ export class RegisterComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                    // this.alertService.success('Registration successful', true);
+                    this.snackBar.open("Success.", "", {duration: 2000});
                     this.router.navigate(['/login']);
                 },
                 error => {
-                    this.alertService.error(error);
+                    // this.alertService.error(error);
+                    // this.snackBar.open(error["statusText"], "", {duration: 2000});
+                    if(error["status"] === "500")
+                        this.snackBar.open("Username already exists", "", {duration: 2000});
+                    else
+                        this.snackBar.open(error["statusText"], "", {duration: 2000});
                     this.loading = false;
                 });
     }
+
     email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'email must xxx@xxx.xxx';
     }
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
