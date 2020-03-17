@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AlertComponent } from './alert/alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { JwtInterceptor } from './_helpers';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,6 +25,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -59,10 +62,12 @@ import { FriendComponent } from './friend/friend.component';
     MatBadgeModule,
     MatTooltipModule,
     MatTableModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule
+
+    MatPaginatorModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

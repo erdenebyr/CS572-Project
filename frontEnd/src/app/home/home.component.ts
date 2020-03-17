@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../_services';
-import { User } from '../_models';
+import { AuthenticationService, UserService } from '../_services';
+import { User, Tweet } from '../_models';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { first } from 'rxjs/operators';
+import { error } from 'protractor';
 
 @Component({
   selector: 'home',
@@ -10,11 +14,45 @@ import { User } from '../_models';
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
+  postForm: FormGroup;
+  loading = false;
+  submitted = false;
+
+  constructor(
+    private router: Router, 
+    private authenticationService: AuthenticationService, 
+    private snackBar: MatSnackBar,
+    private userService: UserService,
+    private formBuilder: FormBuilder,) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    // console.log(this.currentUser);
+  
+    // this.snackBar.open("Welcome " + this.currentUser["_username"], "", {duration: 3000});
   }
 
   ngOnInit(): void {
+    this.postForm = this.formBuilder.group({
+      action: ['tweet'],
+      tweet: ['']
+    })
+  }
+
+  onPostTweet(tweet:string) {
+    this.submitted = true;
+    // this.alertService.clear();
+
+    if (tweet.length <= 0) {
+        return;
+    }
+
+    this.loading = true;
+    this.postForm.value["tweet"] = tweet;
+    this.userService.postTweet(this.postForm.value)
+        .subscribe((res) => {
+          console.log(res);
+        }, err => {
+          console.log(err);
+        });
   }
 
   logout() {
