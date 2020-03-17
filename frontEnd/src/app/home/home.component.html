@@ -1,0 +1,97 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
+    </svg>
+    
+    <div class="spacer"></div>
+    
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon matBadge="1" matBadgeSize="small" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>This person has started following you</span>
+        </button>
+    </mat-menu>
+    <a mat-button (click)="logout()">Logout</a>
+</div>
+    
+<div class="content" role="main">
+    <mat-drawer-container class="home-container">
+        <mat-drawer mode="side" opened class="side-container">
+            <p><button mat-button>Home</button></p>
+            <p><button mat-button (click)="goToProfile()">Profile</button></p>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div class="mainContent">
+                
+                <!-- Search friends -->
+                <div class="rigtSide">
+                    <friend></friend>
+                </div>
+
+                <!-- Main timeline and post -->
+                <div class="tweetTimeline">
+                    <div class="tweet">
+                        <mat-card class="post">
+                            <mat-card-header>
+                                <div mat-card-avatar class="avatar">
+                                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:60px">
+                                </div>
+                              <mat-card-subtitle>Username</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="">
+                            <br><br>
+                            <mat-card-content>
+                                <mat-form-field class="tweetPost">
+                                    <mat-label>What's happening?</mat-label>
+                                    <textarea matInput cdkTextareaAutosize
+                                    cdkAutosizeMinRows="4"
+                                    cdkAutosizeMaxRows="4" #message maxlength="280"></textarea>
+                                    <!-- <mat-hint align="start"></mat-hint> -->
+                                    <mat-hint align="end">{{message.value.length}} / 280</mat-hint>
+                                </mat-form-field>
+                            </mat-card-content>
+                            <mat-card-actions class="mat-card-actions-tweet">
+                                <button mat-raised-button color="primary" >
+                                    Tweet
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    
+                    <br><br>
+                    
+                    <div class="timeline">
+                        <mat-card class="post">
+                            <mat-card-header>
+                              <mat-card-title>Person name</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and 
+                                typesetting industry. ... 
+                                To take a trivial example, which of us ever undertakes 
+                                laborious physical exercise
+                              </p>
+                            </mat-card-content>
+                            <mat-card-actions class="mat-card-actions">
+                                <button mat-icon-button matTooltip="Like it!!!">
+                                    <mat-icon color="warn">favorite_border</mat-icon>
+                                </button>
+                                <button mat-icon-button matTooltip="Retweet">
+                                    <mat-icon color="primary">repeat</mat-icon>
+                                </button>
+                                <button mat-icon-button matTooltip="Comment">
+                                    <mat-icon color="primary">comment</mat-icon>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
