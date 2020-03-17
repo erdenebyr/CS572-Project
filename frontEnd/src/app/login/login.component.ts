@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
-                    this.snackBar.open("Successfully logged in.", "", {duration: 2000});
                 },
                 error => {
                     this.alertService.error(error);

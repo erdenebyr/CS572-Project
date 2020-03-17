@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../_services';
 import { User } from '../_models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'home',
@@ -10,11 +11,20 @@ import { User } from '../_models';
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
+
+  constructor(
+    private router: Router, 
+    private authenticationService: AuthenticationService, 
+    private snackBar: MatSnackBar) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    console.log(this.currentUser);
+  
+    // this.snackBar.open("Welcome " + this.currentUser["_username"], "", {duration: 3000});
   }
 
   ngOnInit(): void {
+    
+    // this.currentUser["_username"]
   }
 
   logout() {
