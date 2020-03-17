@@ -34,7 +34,6 @@ module.exports.getHome = async function (req, res) {
       });
     });
 
-
     forEach(users, uid => {
 
         Twitter.findOne({ _id: uid }, { "username": 1, "tweets": 1 })
@@ -58,6 +57,15 @@ module.exports.getHome = async function (req, res) {
     });
 
 }
+
 module.exports.searchUser = async function (req, res) {
 
+await Twitter.find({username: {$regex: req.params.username}},{"username": 1})
+
+.then(result => {
+
+return res.status(200).json({
+data: result
+})
+})
 }
