@@ -4,5 +4,5 @@
     password: string;
     email: string;
     birthday: string;
-    token: string;
+    token?: string;
 }

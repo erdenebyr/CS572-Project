@@ -5,7 +5,7 @@
     </svg>
     
     <div class="spacer"></div>
-    
+    Welcome {{currentUser["_username"]}}
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon matBadge="1" matBadgeSize="small" matBadgeColor="warn">notifications</mat-icon>
     </button>
@@ -35,31 +35,32 @@
                 <!-- Main timeline and post -->
                 <div class="tweetTimeline">
                     <div class="tweet">
-                        <mat-card class="post">
-                            <mat-card-header>
-                                <div mat-card-avatar class="avatar">
-                                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:60px">
-                                </div>
-                              <mat-card-subtitle>Username</mat-card-subtitle>
-                            </mat-card-header>
-                            <img mat-card-image src="">
-                            <br><br>
-                            <mat-card-content>
-                                <mat-form-field class="tweetPost">
-                                    <mat-label>What's happening?</mat-label>
-                                    <textarea matInput cdkTextareaAutosize
-                                    cdkAutosizeMinRows="4"
-                                    cdkAutosizeMaxRows="4" #message maxlength="280"></textarea>
-                                    <!-- <mat-hint align="start"></mat-hint> -->
-                                    <mat-hint align="end">{{message.value.length}} / 280</mat-hint>
-                                </mat-form-field>
-                            </mat-card-content>
-                            <mat-card-actions class="mat-card-actions-tweet">
-                                <button mat-raised-button color="primary" >
-                                    Tweet
-                                </button>
-                            </mat-card-actions>
-                        </mat-card>
+                            <mat-card class="post">
+                                <mat-card-header>
+                                    <div mat-card-avatar class="avatar">
+                                        <img src="../../assets/img/avatar.png" alt="Avatar" style="width:60px">
+                                    </div>
+                                <mat-card-subtitle>{{currentUser["_username"]}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="">
+                                <br><br>
+                                <mat-card-content>
+                                    <mat-form-field class="tweetPost">
+                                        <mat-label>What's happening?</mat-label>
+                                        <textarea matInput #tweet
+                                        cdkTextareaAutosize
+                                        cdkAutosizeMinRows="4"
+                                        cdkAutosizeMaxRows="4" #message maxlength="280"></textarea>
+                                        <!-- <mat-hint align="start"></mat-hint> -->
+                                        <mat-hint align="end">{{message.value.length}} / 280</mat-hint>
+                                    </mat-form-field>
+                                </mat-card-content>
+                                <mat-card-actions class="mat-card-actions-tweet">
+                                    <button mat-raised-button color="primary" (click)="onPostTweet(tweet.value)">
+                                        Tweet
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
                     </div>
                     
                     <br><br>

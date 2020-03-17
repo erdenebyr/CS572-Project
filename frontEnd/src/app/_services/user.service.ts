@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-import { User } from '../_models/';
+import { User, Tweet } from '../_models/';
 // import { config } from 'rxjs';
 // import { config } from 'process';
 // import { config } from 'rxjs';
@@ -17,10 +17,15 @@ export class UserService {
     }
 
     register(user: User) {
+        console.log(user);
         return this.http.post(environment.baseURL + `/signup`, user);
     }
 
     delete(id: number) {
         return this.http.delete(environment.baseURL + `/users/${id}`);
+    }
+
+    postTweet(tweet: Tweet){
+        return this.http.post(environment.baseURL + `/action`,tweet)
     }
 }

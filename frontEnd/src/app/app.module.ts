@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AlertComponent } from './alert/alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { JwtInterceptor } from './_helpers';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -64,7 +65,7 @@ import { FriendComponent } from './friend/friend.component';
     MatSnackBarModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

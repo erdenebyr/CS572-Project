@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
             email: ['', Validators.required],
             dateofbirth: ['', [Validators.required]]
         });
-        console.log(this.registerForm.value);
     }
 
     get f() { return this.registerForm.controls; }
@@ -47,6 +46,7 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
+        console.dir(this.registerForm.value)
         this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
