@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-    background: #456;
+    background: rgb(208, 212, 216);
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -9,6 +9,7 @@ body {
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
+  background: #987;
 }
 
 .edit-header,
@@ -18,7 +19,7 @@ body {
 }
 
 .edit-header {
-  background: rgb(12, 77, 129);
+  background: rgb(78, 88, 95);
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
@@ -28,7 +29,7 @@ body {
 }
 
 .edit-container {
-  background: #ebebeb;
+  background:rgb(174, 174, 184);
   padding: 12px;
 }
 
@@ -61,7 +62,7 @@ body {
 }
 
 .edit input[type="submit"] {
-  background: rgb(1, 29, 51);
+  background: rgb(78, 88, 95);
   border-color: transparent;
   color: #fff;
   cursor: pointer;
