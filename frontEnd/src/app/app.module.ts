@@ -23,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -58,7 +59,8 @@ import { FriendComponent } from './friend/friend.component';
     MatBadgeModule,
     MatTooltipModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
