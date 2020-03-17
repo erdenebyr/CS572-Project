@@ -4,7 +4,7 @@ import { AuthenticationService } from '../_services';
 import { User } from '../_models';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

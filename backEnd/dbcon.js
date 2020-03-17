@@ -1,6 +1,10 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 class dbconn {
 
@@ -14,12 +18,5 @@ class dbconn {
             });
     }
 
-    checkJWT(){
-        return true;
-    }
-
-    createJWT(){
-
-    }
 }
 module.exports = new dbconn();

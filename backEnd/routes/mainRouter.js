@@ -6,20 +6,22 @@ const actionController = require('../controllers/actionController')
 const homeController = require('../controllers/homeController')
 const adminController = require('../controllers/adminController')
 const loginController = require('../controllers/loginController')
-const { parse_json } = require('../middlewares/parseBody');
+const { parse_json } = require('../middlewares/parseBody')
+const { parse_url_encoded } = require('../middlewares/parseBody')
+const { checkAuth } = require('../middlewares/checkAuth')
 
-router.post('/action', checkAuth, parse_json, actionController.doAction);
-router.post('/signup', parse_json, loginController.signup);
-router.post('/login', parse_json, loginController.login);
-router.get('/home', checkAuth, parse_json, homeController.getHome);
-router.get('/search/:username', checkAuth, parse_json, homeController.searchUser);
+router.post('/action', parse_json, parse_url_encoded, checkAuth, actionController.doAction);
+router.post('/signup', parse_json, parse_url_encoded, loginController.signup);
+router.post('/login', parse_json, parse_url_encoded, loginController.login);
+router.get('/home', parse_json, parse_url_encoded, checkAuth, homeController.getHome);
+router.get('/search/:username', parse_json, parse_url_encoded, checkAuth, homeController.searchUser);
 
-router.get('/:username', checkAuth, parse_json, userController.getProfile)
-router.get('/:username/:tweetid', checkAuth, parse_json, userController.getTweetDetial)
-router.get('/:username/followers', checkAuth, parse_json, userController.getFollowers)
-router.get('/:username/following', checkAuth, parse_json, userController.getFollowing)
-router.post('/:username', checkAuth, parse_json, userController.editProfile)
+router.get('/:username', parse_json, parse_url_encoded, checkAuth, userController.getProfile)
+router.get('/:username/:tweetid', parse_json, parse_url_encoded, checkAuth, userController.getTweetDetial)
+router.get('/:username/followers', parse_json, parse_url_encoded, checkAuth, userController.getFollowers)
+router.get('/:username/following', parse_json, parse_url_encoded, checkAuth, userController.getFollowing)
+router.post('/:username', parse_json, parse_url_encoded, checkAuth, userController.editProfile)
 
-router.post('/adminaction', checkAuth, parse_json, adminController.doAction)
+router.post('/adminaction', parse_json, parse_url_encoded, checkAuth, adminController.doAction)
 
 module.exports = router;

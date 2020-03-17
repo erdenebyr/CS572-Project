@@ -1,0 +1,126 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #141d26;
+    color: white;
+    font-weight: 600;
+}
+
+.toolbar img {
+    margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+    height: 60px;
+    margin: 0 16px;
+    align-items: center;
+}
+
+.toolbar #twitter-logo:hover {
+    opacity: 0.8;
+}
+
+.content {
+    /* display: flex; */
+    margin: 60px auto;
+    /* padding: 0 16px; */
+    /* max-width: 960px; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+}
+form{
+    /* width: 400px; */
+    margin-top:40px;
+    margin-right:auto;
+    margin-bottom:0;
+    margin-left:auto;
+    padding: 60px;
+}
+.home-container {
+  width: 100%;
+  height: 100vh;
+  /* margin: 10px; */
+}
+.side-container{
+  width: 200px;
+  background-color: #243447;
+  color:white
+}
+.side-container button{
+  width: 200px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.home{
+    margin: 0 auto;
+}
+
+.mainContent {
+    margin: 0px auto;
+    /* max-width: 1150px; */
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.tweetTimeline {
+    max-width:600px;
+    padding-right: 10px;
+    margin-right:300px;
+}
+.tweet {
+    height: 150px;
+    margin: 0px auto;
+    /* max-width: 600px; */
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    /* background:#FF6699; */
+    padding-top: 10px;
+    padding-bottom: 100px;
+}
+.tweetPost{
+    width: 100%;
+}
+.timeline {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 450px;
+    text-align: center;
+    /* background:#6699FF; */
+}
+.rigtSide {
+    float: right;
+    width: 300px;
+    height:600px;
+    background:#66CC33;
+    padding:10px;
+}
+
+.post{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.mat-card-actions{
+    text-align: left;
+}
+.mat-card-actions-tweet{
+    text-align: right;
+}
+
+.avatar{
+    padding-right: 10px;
+}
+.avatar img {
+    border-radius: 50%;
+  }

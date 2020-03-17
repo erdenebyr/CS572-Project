@@ -8,27 +8,15 @@ var TwitterSchema = new Schema(
         username: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        dob: Date,
+        dateofbirth: Date,
         isActive: Boolean,
-        followers: [
-            {
-                userid: String
-            }
-        ],
-        following: [
-            {
-                userid: String
-            }
-        ],
+        followers: [],
+        following: [],
         tweets:[
             {
                 tweetdate: Date,
                 tweet: String,
-                likes: [
-                    {
-                        userid: String
-                    }
-                ],
+                likes: [],
                 comments: [
                     {
                         userid: String,
@@ -36,15 +24,11 @@ var TwitterSchema = new Schema(
                         comment: String
                     }
                 ],
-                retweets: [
-                    {
-                        userid: String
-                    }
-                ]
+                retweets: []
             }
         ]
     }
 )
 
 TwitterSchema.plugin(uniqueValidator);
-module.exports = TwitterSchema = mongoose.model('colTwitter', TwitterSchema);
+module.exports =  mongoose.model('ColTwitter', TwitterSchema);
