@@ -5,7 +5,7 @@
     </svg>
     
     <div class="spacer"></div>
-    Welcome {{currentUser["_username"]}}
+    Hey! {{currentUser["_username"]}}
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon matBadge="1" matBadgeSize="small" matBadgeColor="warn">notifications</mat-icon>
     </button>
@@ -29,7 +29,7 @@
                 
                 <!-- Search friends -->
                 <div class="rigtSide">
-                    <!-- <friend></friend> -->
+                    <friend></friend>
                 </div>
 
                 <!-- Main timeline and post -->
@@ -56,7 +56,7 @@
                                     </mat-form-field>
                                 </mat-card-content>
                                 <mat-card-actions class="mat-card-actions-tweet">
-                                    <button mat-raised-button color="primary" (click)="onPostTweet(tweet.value)">
+                                    <button mat-raised-button color="primary" (click)="onPostTweet(tweet)">
                                         Tweet
                                     </button>
                                 </mat-card-actions>

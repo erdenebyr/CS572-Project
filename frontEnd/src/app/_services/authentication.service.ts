@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
@@ -21,6 +21,11 @@ export class AuthenticationService {
     }
 
     login(username, password) {
+        // let headers = new HttpHeaders({
+        //     'Content-Type': 'application/json',
+        //     'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InFxcSIsInVzZXJJZCI6IjVlNzA2MGJmZjNmOWRhYmUyMTllMzIwMSIsImlhdCI6MTU4NDQ3MjE3MywiZXhwIjoxNTg0NDc5MzczfQ.5ZlYjF9MKjjUYryMC0wJdORJiz9fABRYUwuwOmOHwBA`});
+        // let option = { headers: headers }
+
         return this.http.post<any>(environment.baseURL+`/login`, { username, password })
             .pipe(map(user => {
                 localStorage.setItem('currentUser', JSON.stringify(user));

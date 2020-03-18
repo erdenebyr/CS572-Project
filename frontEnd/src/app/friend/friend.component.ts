@@ -9,7 +9,7 @@ import {MatSort} from '@angular/material/sort';
   styleUrls: ['./friend.component.css']
 })
 export class FriendComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['name', 'symbol', 'star'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

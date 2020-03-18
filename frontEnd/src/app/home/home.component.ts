@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  onPostTweet(tweet:string) {
+  onPostTweet(tweet) {
     this.submitted = true;
     // this.alertService.clear();
 
@@ -46,12 +46,15 @@ export class HomeComponent implements OnInit {
     }
 
     this.loading = true;
-    this.postForm.value["tweet"] = tweet;
+    this.postForm.value["tweet"] = tweet.value;
     this.userService.postTweet(this.postForm.value)
         .subscribe((res) => {
-          console.log(res);
+          console.dir(res);
+          this.snackBar.open("Nice! Tweeted.", "", {duration: 2000})
+          tweet.value="";
         }, err => {
-          console.log(err);
+          // console.log(err);
+          this.snackBar.open("Could not tweet. Try again later.", "", {duration: 2000})
         });
   }
 
