@@ -34,6 +34,7 @@ export class AlertService {
     error(message: string, keepAfterRouteChange = false) {
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'error', text: message });
+        this.subject.next({ type: 'error', text: message["statusText"] });
     }
 
     clear() {

@@ -5,17 +5,21 @@ var jwtDecode = require('jwt-decode')
 
 module.exports.getHome = async function (req, res) {
     let results = []
-    let users = [] 
+    let users = []
     let userid = jwtDecode(req.headers.authorization.split(' ')[1]).userId;
     users.push(userid)
     await Twitter.find({_id: userid},{"_id": 0, "following": 1 })
+
     .then(result => {
         of((result[0]).following).forEach(obj => {
             obj.forEach(e => {
                 users.push(e.followingid)
+
             })
+
         })
     })
+
     .catch(error => {
       return res.status(500).json({
         message: "Failure in the homeController"

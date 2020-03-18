@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+    background: rgb(208, 212, 216);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.edit {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+  background: #987;
+}
+
+.edit-header,
+.edit p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.edit-header {
+  background: rgb(78, 88, 95);
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.edit-container {
+  background:rgb(174, 174, 184);
+  padding: 12px;
+}
+
+.edit p {
+  padding: 12px;
+}
+
+.edit input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.edit input[type="email"],
+.edit input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.edit input[type="submit"] {
+  background: rgb(78, 88, 95);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.edit input[type="submit"]:hover {
+  background: #17c;
+}
+
+.edit input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+.has-error input[type="email"],
+.has-error input[type="password"] {
+    border-color: rgb(216, 12, 12);
+    color: rgb(230, 14, 14);
+}

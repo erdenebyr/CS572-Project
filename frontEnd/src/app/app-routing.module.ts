@@ -5,11 +5,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AuthGuard } from '../app/_helpers/auth.guard'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},//, canActivate: [AuthGuard
-  { path: 'profile', component: ProfileComponent},
-  { path: 'editprofile', component: EditProfileComponent}, 
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard]}, 
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
 
@@ -17,9 +18,3 @@ const routes: Routes = [
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);
-
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule]
-// })
-// export class AppRoutingModule { }
