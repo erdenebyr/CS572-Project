@@ -19,7 +19,6 @@ module.exports.getProfile = async function (req, res) {
 }
 
 module.exports.getFollowers = async function (req, res) {
-    console.log("FOLOWERS USERNAME: ", req.params.username)
     try{
         let result = await Twitter.findOne({username: req.params.username},{"followers":1})
         return res.json({data: result})
@@ -29,7 +28,6 @@ module.exports.getFollowers = async function (req, res) {
 }
 
 module.exports.getFollowing = async function (req, res) {
-    console.log("FOLLOWING USERNAME: ", req.params.username)
     try{
         let result = await Twitter.findOne({username: req.params.username},{"following":1})
         return res.json({data: result})
