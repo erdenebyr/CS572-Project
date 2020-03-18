@@ -94,7 +94,7 @@
     float: right;
     width: 300px;
     height:600px;
-    background:#66CC33;
+    /* background:#66CC33; */
     padding:10px;
 }
 
@@ -117,3 +117,31 @@
 .avatar img {
     border-radius: 50%;
   }
+  .box1 {
+    width: 200px;
+    display:inline-block;
+    margin:10px 0;
+    vertical-align: top;
+    margin-top: 60px;
+    width: 200px;
+    background-color: #243447;
+    color:white
+}
+.box2 {
+    width: 600px;
+    display:inline-block;
+    margin:10px 0;
+    vertical-align: top;
+    margin-top: 60px;
+}
+.box3 {
+    width: 400px;
+    display:inline-block;
+    margin:10px 0;
+    vertical-align: top;
+    margin-top: 60px;
+}
+.container {
+    white-space:nowrap;
+    text-align:center;
+}

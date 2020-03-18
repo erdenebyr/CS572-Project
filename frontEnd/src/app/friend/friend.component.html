@@ -1,6 +1,6 @@
 <mat-form-field>
-<mat-label>Filter</mat-label>
-<input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
+<mat-label>Search</mat-label>
+<input matInput (keyup)="applyFilter($event)" placeholder="#Name">
 </mat-form-field>
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
@@ -28,11 +28,20 @@
         <th mat-header-cell *matHeaderCellDef> Symbol </th>
         <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
       </ng-container>
+
+        <!-- Star Column -->
+      <ng-container matColumnDef="star" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-icon>more_vert</mat-icon> -->
+          <button mat-stroked-button color="primary">Follow</button>
+        </td>
+      </ng-container>
   
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [hidePageSize]="true" [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
   </div>
   

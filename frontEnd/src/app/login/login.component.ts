@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
+                    console.dir(error);
                     this.alertService.error(error);
                     this.loading = false;
                     this.snackBar.open(error["status"] + " : Invalid username or password", "", {duration: 2000});
