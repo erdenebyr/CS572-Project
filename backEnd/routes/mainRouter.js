@@ -16,11 +16,12 @@ router.post('/login', parse_json, parse_url_encoded, loginController.login);
 router.get('/home', parse_json, parse_url_encoded, checkAuth, homeController.getHome);
 router.get('/search/:username', parse_json, parse_url_encoded, checkAuth, homeController.searchUser);
 
+router.get('/followers/:username', parse_json, parse_url_encoded, checkAuth, userController.getFollowers)
+router.get('/following/:username', parse_json, parse_url_encoded, checkAuth, userController.getFollowing)
+router.post('/edit/:username', parse_json, parse_url_encoded, checkAuth, userController.editProfile)
+
 router.get('/:username', parse_json, parse_url_encoded, checkAuth, userController.getProfile)
-router.get('/:username/:tweetid', parse_json, parse_url_encoded, checkAuth, userController.getTweetDetial)
-router.get('/:username/followers', parse_json, parse_url_encoded, checkAuth, userController.getFollowers)
-router.get('/:username/following', parse_json, parse_url_encoded, checkAuth, userController.getFollowing)
-router.post('/:username', parse_json, parse_url_encoded, checkAuth, userController.editProfile)
+router.get('/:username/:tweetid', parse_json, parse_url_encoded, checkAuth, userController.getTweetDetail)
 
 router.post('/adminaction', parse_json, parse_url_encoded, checkAuth, adminController.doAction)
 

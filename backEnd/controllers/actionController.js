@@ -17,7 +17,7 @@ module.exports.doAction = async function (req, res) {
         },
         (err, result) => {
             if(result)
-                return res.status(200).json({ message: result })
+                return res.status(200).json({ message: "Successfully tweeted" })
             else
                 return res.status(500).json({ error: err })
         })
