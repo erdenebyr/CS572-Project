@@ -69,27 +69,6 @@
     padding-right: 10px;
     margin-right:300px;
 }
-.tweet {
-    height: 150px;
-    margin: 0px auto;
-    /* max-width: 600px; */
-    text-align: center;
-    margin: auto;
-    margin-bottom: 10px;
-    /* background:#FF6699; */
-    padding-top: 10px;
-    padding-bottom: 100px;
-}
-.tweetPost{
-    width: 100%;
-}
-.timeline {
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 450px;
-    text-align: center;
-    /* background:#6699FF; */
-}
 .rigtSide {
     float: right;
     width: 300px;
@@ -97,27 +76,7 @@
     /* background:#66CC33; */
     padding:10px;
 }
-
-.post{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.mat-card-actions{
-    text-align: left;
-}
-.mat-card-actions-tweet{
-    text-align: right;
-}
-
-.avatar{
-    padding-right: 10px;
-}
-.avatar img {
-    border-radius: 50%;
-  }
-  .box1 {
+.box1 {
     width: 200px;
     display:inline-block;
     margin:10px 0;

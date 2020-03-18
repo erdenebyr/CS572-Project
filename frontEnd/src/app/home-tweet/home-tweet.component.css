@@ -1,0 +1,28 @@
+.tweet {
+    height: 150px;
+    margin: 0px auto;
+    /* max-width: 600px; */
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    /* background:#FF6699; */
+    padding-top: 10px;
+    padding-bottom: 100px;
+}
+.tweetPost{
+    width: 100%;
+}
+.mat-card-actions-tweet{
+    text-align: right;
+}
+.post{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.avatar{
+    padding-right: 10px;
+}
+.avatar img {
+    border-radius: 50%;
+}

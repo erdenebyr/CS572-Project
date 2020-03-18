@@ -1,0 +1,24 @@
+.timeline {
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* height: 450px; */
+    text-align: center;
+    /* background:#6699FF; */
+}
+.post{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.mat-card-actions{
+    text-align: left;
+}
+.avatar{
+    padding-right: 10px;
+}
+.avatar img {
+    border-radius: 50%;
+    border: 1px;
+    border-style: solid;
+    border-color: #1DA1F2;
+}
