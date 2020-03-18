@@ -7,7 +7,7 @@ module.exports.checkAuth = async function (req, res, next) {
         let token = req.headers.authorization.split(' ')[1];
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
           if (err) {
-            console.log('invalid token')
+            console.log('Invalid Token')
             next(new Error("Invalid Token"));
           }
           if(req.method == "POST")

@@ -1,13 +1,9 @@
-const express = require('express');
 const Twitter = require('../models/twitter.model');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const router = express.Router();
 
 module.exports.login = async function (req, res) {
     let fetchedUser;
-    console.log(req.body.username);
-
     Twitter.findOne({ 'username': req.body.username })
     .then(user => {
       if (!user) {
