@@ -48,29 +48,20 @@ module.exports.getTweetDetail = async function (req, res) {
 }
 
 module.exports.editProfile = async function (req, res) {
-    bcrypt.hash(req.body.password, 10).then(password => {
-        const newTwitter = new Twitter({
-          username: req.body.username,
-          password: password,
-          email: req.body.email,
-          dateofbirth: req.body.dateofbirth,
-          isActive: true,
-          followers: [],
-          following: [],
-          tweets:[]
+    let newPassword
+    await bcrypt.hash(req.body.password, 10).then(password => {
+        newPassword = password
         });
-        newTwitter
-          .save()
-          .then(result => {
-            res.status(201).json({
-              message: "Twitter created!",
-              result: result
-            });
-          })
-          .catch(err => {
-            res.status(500).json({
-              //error: err
-            });
-          });
-      });
+    await Twitter.findOneAndUpdate({_id: req.body.jwt.userId},{$set: {
+        email: req.body.email,
+        password: newPassword,
+        dateofbirth: req.body.dateofbirth
+        }
+    },
+    (err, result) => {
+        if(result)
+            return res.status(200).json({ message: "Successfully editted" })
+        else
+            return res.status(500).json({ error: err })
+    })
 }
