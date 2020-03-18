@@ -31,31 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postForm = this.formBuilder.group({
-      action: ['tweet'],
-      tweet: ['']
-    })
-  }
-
-  onPostTweet(tweet) {
-    this.submitted = true;
-    // this.alertService.clear();
-
-    if (tweet.length <= 0) {
-        return;
-    }
-
-    this.loading = true;
-    this.postForm.value["tweet"] = tweet.value;
-    this.userService.postTweet(this.postForm.value)
-        .subscribe((res) => {
-          console.dir(res);
-          this.snackBar.open("Nice! Tweeted.", "", {duration: 2000})
-          tweet.value="";
-        }, err => {
-          // console.log(err);
-          this.snackBar.open("Could not tweet. Try again later.", "", {duration: 2000})
-        });
   }
 
   logout() {
@@ -63,6 +38,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   goToProfile(){
-    this.router.navigate(['/profile']);
+    // this.router.navigate(['/profile']);
+    
   }
 }
