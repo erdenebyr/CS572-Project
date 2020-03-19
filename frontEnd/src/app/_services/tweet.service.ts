@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 import { User, Tweet, FollowReq} from '../_models/';
+import { TimelineTweet } from "../_models/timelineTweet";
 import { dirname } from 'path';
-import { TimelineList } from '../_models/timeline/timelineList';
 // import { config } from 'rxjs';
 // import { config } from 'process';
 // import { config } from 'rxjs';
@@ -15,7 +15,10 @@ export class TweetService {
     constructor(private http: HttpClient) { }
 
     getTimeline() {
-        return this.http.get<TimelineList>(environment.baseURL + '/home');
+        return this.http.get<TimelineTweet>(environment.baseURL + '/home');
+    }
+    getMyTweets(username: String) {
+        return this.http.get<TimelineTweet>(environment.baseURL + '/' + username);
     }
 
     // register(user: User) {

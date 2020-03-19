@@ -16,7 +16,7 @@
 <div>
     <mat-tab-group mat-stretch-tabs>
         <mat-tab label="Tweets">
-          <timeline></timeline>
+          <timeline  *ngFor="let item of tweetList" [item]="item"></timeline>
         </mat-tab>
         <mat-tab label="Edit Profile">
             <profile-edit [username]="username" [email]="email"></profile-edit>

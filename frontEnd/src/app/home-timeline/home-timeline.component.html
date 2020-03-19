@@ -4,13 +4,13 @@
             <div mat-card-avatar class="avatar">
                 <img src="../../assets/img/avatar1.svg" alt="Avatar" style="width:60px">
             </div>
-        <mat-card-subtitle>Name here</mat-card-subtitle>
+        <mat-card-subtitle>{{item ? item.username : ""}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="">
         <br><br>
         <mat-card-content>
           <p>
-            <!-- {{tweet.text}} -->
+            {{item ? item.tweet : ""}}
           </p>
         </mat-card-content>
         <mat-card-actions class="mat-card-actions">

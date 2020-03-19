@@ -1,4 +1,4 @@
-export class TimelineList {
-    username: String;
-    tweets:TimelineTweet[];
-}
+// export class TimelineList {
+//     username: String;
+//     tweets:TimelineTweet[];
+// }

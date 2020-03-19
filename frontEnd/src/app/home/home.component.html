@@ -22,7 +22,7 @@
     <mat-drawer-container class="home-container">
         <mat-drawer mode="side" opened class="side-container">
             <p><button mat-button (click)="isOn = true">Home</button></p>
-            <p><button mat-button (click)="isOn = false">Profile</button></p>
+            <p><button mat-button (click)="goToProfile()">Profile</button></p>
             <!-- <p><button mat-button>Home</button></p>
             <p><button mat-button>Profile</button></p> -->
         </mat-drawer>
@@ -36,15 +36,15 @@
 
                 <!-- Main timeline and post -->
                 <div class="tweetTimeline">
-                    <home-tweet [currentUser]="currentUser" *ngIf="!isOn"></home-tweet>
-                    
+                    <home-tweet [currentUser]="currentUser" *ngIf="isOn"></home-tweet>
                     <br>
-                    
-                    <timeline *ngIf="!isOn"></timeline>
-                    
+                    <div *ngIf="isOn">
+                        <timeline  *ngFor="let item of tweetList" [item]="item">
+                        </timeline>
+                    </div>
                     <br>
 
-                    <profile *ngIf="isOn"></profile>
+                    <profile *ngIf="!isOn"></profile>
                     
                 </div>
             </div>

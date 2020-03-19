@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HomeComponent } from "../home/home.component";
 import { User } from '../_models/user';
+import { TimelineTweet } from '../_models';
 
 @Component({
   selector: 'timeline',
@@ -8,11 +9,14 @@ import { User } from '../_models/user';
   styleUrls: ['./home-timeline.component.css']
 })
 export class HomeTimelineComponent implements OnInit {
+  @Input() item;
+
   constructor() { 
+    
   }
 
   ngOnInit(): void {
-    
+    // console.dir(this.item.username);
   }
 
 
