@@ -3,6 +3,8 @@ const forEach = require('async-foreach').forEach;
 const express = require('express');
 const Twitter = require('../models/twitter.model')
 var jwtDecode = require('jwt-decode')
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 module.exports.getHome = async function (req, res) {
   let results = []
@@ -48,4 +50,50 @@ module.exports.searchUser = async function (req, res) {
         data: result
       })
     })
+}
+
+module.exports.getSuggest = async function (req, res) {
+  let userid = jwtDecode(req.headers.authorization.split(' ')[1]).userId;
+  let ignoreduser =[]
+  ignoreduser.push(ObjectId(userid))
+  try {
+    await Twitter.find({_id: userid},{"_id": 0, "following": 1})
+    .then(result => {
+      of((result[0]).following).forEach(obj => {
+        obj.forEach(e => {
+          ignoreduser.push(ObjectId(e.followingid))
+        })
+      })
+    })
+
+    let result = await Twitter.aggregate([
+      {
+        $project: {
+          username: 1,
+          followersnumber: { $size: "$followers" }
+       } 
+      }, 
+      {   
+          $sort: {"followersnumber": -1} 
+      },
+      {
+        
+         $match: {
+           _id: { $nin: ignoreduser}
+         }
+        
+      },
+      {
+        $limit: 100
+      },
+      {
+        $project: {
+          username: 1,
+       } 
+      }
+    ])
+    return res.json({ data: result })
+  } catch (err) {
+    return res.json({ error: err })
+  }
 }

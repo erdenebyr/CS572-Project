@@ -16,6 +16,7 @@ router.post('/login', parse_json, parse_url_encoded, loginController.login);
 router.get('/home', parse_json, parse_url_encoded, checkAuth, homeController.getHome);
 router.post('/edit', parse_json, parse_url_encoded, checkAuth, userController.editProfile)
 router.post('/adminaction', parse_json, parse_url_encoded, checkAuth, adminController.doAction)
+router.get('/home/suggest', parse_json, parse_url_encoded, checkAuth, homeController.getSuggest);
 router.get('/search/:username', parse_json, parse_url_encoded, checkAuth, homeController.searchUser);
 router.get('/followers/:username', parse_json, parse_url_encoded, checkAuth, userController.getFollowers)
 router.get('/following/:username', parse_json, parse_url_encoded, checkAuth, userController.getFollowing)
