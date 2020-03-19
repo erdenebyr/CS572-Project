@@ -14,7 +14,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
       </ng-container>
   
       <!-- Weight Column -->
@@ -34,7 +34,7 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
           <!-- <mat-icon>more_vert</mat-icon> -->
-          <button mat-stroked-button color="primary">Follow</button>
+          <button mat-stroked-button color="primary" (click)="followButtonClicked(element._id)">Follow</button>
         </td>
       </ng-container>
   

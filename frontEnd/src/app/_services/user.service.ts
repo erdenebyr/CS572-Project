@@ -2,7 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-import { User, Tweet } from '../_models/';
+import { User, Tweet, FollowReq} from '../_models/';
+import { dirname } from 'path';
 // import { config } from 'rxjs';
 // import { config } from 'process';
 // import { config } from 'rxjs';
@@ -26,5 +27,14 @@ export class UserService {
 
     postTweet(tweet: Tweet){
         return this.http.post(environment.baseURL + `/action`,tweet)
+    }
+
+    getSearchResult(username: String){
+        return this.http.get<User>(environment.baseURL + `/search/${username}`);     
+    }
+
+    followUser(data: FollowReq){
+        console.dir(data);
+        return this.http.post(environment.baseURL + `/action`, data);
     }
 }
