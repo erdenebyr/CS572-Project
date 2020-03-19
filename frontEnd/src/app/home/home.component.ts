@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     private userService: UserService,
     private formBuilder: FormBuilder,) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    // console.log(this.currentUser);
+    // console.log("HOME : " + this.currentUser);
   
     // this.snackBar.open("Welcome " + this.currentUser["_username"], "", {duration: 3000});
   }

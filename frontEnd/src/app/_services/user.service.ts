@@ -27,4 +27,8 @@ export class UserService {
     postTweet(tweet: Tweet){
         return this.http.post(environment.baseURL + `/action`,tweet)
     }
+
+    getPersonalInfo(username: string){
+        return this.http.get(environment.baseURL + `/` + username)
+    }
 }

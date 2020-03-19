@@ -1,0 +1,11 @@
+.header-image{
+    padding-right: 10px;
+}
+.header-image img {
+    border-radius: 50%;
+}
+.follow{
+    font-weight: bold;
+    text-decoration: underline;
+    color:#c51f5d;
+}

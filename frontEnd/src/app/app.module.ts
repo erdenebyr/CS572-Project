@@ -27,6 +27,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AlertComponent,
     FriendComponent,
     HomeTweetComponent,
-    HomeTimelineComponent
+    HomeTimelineComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

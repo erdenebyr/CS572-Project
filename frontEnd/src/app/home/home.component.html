@@ -21,10 +21,10 @@
 <div class="content" role="main">
     <mat-drawer-container class="home-container">
         <mat-drawer mode="side" opened class="side-container">
-            <!-- <p><button mat-button (click)="isOn= false">Home</button></p>
-            <p><button mat-button (click)="isOn= true">Profile</button></p> -->
-            <p><button mat-button>Home</button></p>
-            <p><button mat-button>Profile</button></p>
+            <p><button mat-button (click)="isOn= false">Home</button></p>
+            <p><button mat-button (click)="isOn= true">Profile</button></p>
+            <!-- <p><button mat-button>Home</button></p>
+            <p><button mat-button>Profile</button></p> -->
         </mat-drawer>
         <mat-drawer-content>
             <div class="mainContent">
@@ -36,13 +36,16 @@
 
                 <!-- Main timeline and post -->
                 <div class="tweetTimeline">
-                    <home-tweet [currentUser]="currentUser"></home-tweet>
+                    <home-tweet [currentUser]="currentUser" *ngIf="isOn"></home-tweet>
                     
                     <br>
                     
-                    <home-timeline></home-timeline>
+                    <timeline *ngIf="isOn"></timeline>
                     
                     <br>
+
+                    <profile *ngIf="!isOn"></profile>
+                    
                 </div>
             </div>
         </mat-drawer-content>
