@@ -12,7 +12,6 @@ import { ProfileComponent } from '../profile/profile.component';
 export class ProfileEditComponent implements OnInit {
   @Input() username;
   @Input() email;
-  @Input() bday;
   
   updateForm: FormGroup;
   loading = false;
@@ -25,19 +24,30 @@ export class ProfileEditComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    console.dir(this.profile.username);
+  
     this.updateForm = this.formBuilder.group({
-      username: [this.profile.username, Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', Validators.required],
-      dateofbirth: ['', [Validators.required]]
   });
-
-  // console.dir(this.currentUser + ": FROM PROFILE EDIT");
-  // console.dir(this.userService.getPersonalInfo(this.currentUser));
-
   }
-  onSubmit() {
 
+  get f() { return this.updateForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.updateForm.invalid) {
+            return;
+    }
+
+    this.userService.updatePersonalInfo(this.updateForm.value)
+            .subscribe(
+                data => {
+                    this.snackBar.open("Successfully updated.", "", {duration: 2000});
+                },
+                error => {
+                    this.snackBar.open(error["status"] + " : Could not update. Try again later", "", {duration: 2000});
+                    this.loading = false;
+                });
   }
 }
