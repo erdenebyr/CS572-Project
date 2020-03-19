@@ -34,7 +34,6 @@ export class UserService {
     }
 
     followUser(data: FollowReq){
-        console.dir(data);
         return this.http.post(environment.baseURL + `/action`, data);
     }
 }
