@@ -36,4 +36,8 @@ export class UserService {
     followUser(data: FollowReq){
         return this.http.post(environment.baseURL + `/action`, data);
     }
+
+    getPersonalInfo(username: String){
+        return this.http.get(environment.baseURL + `/` + username);
+    }
 }
