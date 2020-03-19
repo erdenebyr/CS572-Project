@@ -35,6 +35,9 @@ export class ProfileEditComponent implements OnInit {
 
   // console.dir(this.currentUser + ": FROM PROFILE EDIT");
   // console.dir(this.userService.getPersonalInfo(this.currentUser));
-  
+
+  }
+  onSubmit() {
+
   }
 }
