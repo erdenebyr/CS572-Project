@@ -21,7 +21,7 @@ var AdminSchema = new Schema({
             ],
             retweets: [],
             reports:[{
-                userid:string
+                userid:String
             }]
         }
     ]
