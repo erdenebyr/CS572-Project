@@ -30,6 +30,7 @@ export class UserService {
     }
 
     getSearchResult(username: String){
+        console.log(username);
         return this.http.get<User>(environment.baseURL + `/search/${username}`);     
     }
 

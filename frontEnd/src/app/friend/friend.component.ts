@@ -17,15 +17,25 @@ export class FriendComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(private userService: UserService) {
   }
+  
   ngOnInit() {
-    this.init();
   }
-  init = async function () {
-    this.userService.getSearchResult("e").subscribe(res => {
-      console.log(res.data);
+
+  search = async function (letter : String) {
+    console.log(letter);
+    // if(letter === "" || letter == undefined) return;
+    this.userService.getSearchResult(letter.toString()).subscribe(res => {
+      if(res.data === null || res.data.length < 1) {
+        this.elementList = [];
+        this.dataSource.data = [];
+      }else{
+        this.elementList = res.data;
+        this.dataSource.data = this.elementList;
+        if (this.dataSource.paginator) {
+          this.dataSource.paginator.firstPage();
+        }
+      }
       
-      this.elementList = res.data;
-      this.dataSource.data = this.elementList;
     }, (err => { console.log("ERROR: ", err) }));
 
     this.dataSource.paginator = this.paginator;
@@ -33,11 +43,9 @@ export class FriendComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(filterValue);
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    this.search(filterValue);
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
+    // console.log(filterValue);
   }
   followButtonClicked(id: String){
     var t = new FollowReq();
