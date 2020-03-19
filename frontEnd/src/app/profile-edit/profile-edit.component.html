@@ -2,7 +2,7 @@
     <div class="form-group">
         <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput type="text" formControlName="username" class="form-control" disabled>
+            <input value="{{username}}" matInput type="text" formControlName="username" class="form-control" readonly>
         </mat-form-field>
     </div>
     <div class="form-group">
@@ -14,16 +14,7 @@
     <div class="form-group">
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput placeholder="email@mail.com" formControlName="email" class="form-control" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-          </mat-form-field>
-    </div>
-    <div class="form-group">
-        <mat-form-field>
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="dateofbirth" class="form-control" >
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input value="{{email}}" matInput placeholder="email@mail.com" formControlName="email" class="form-control" required>
           </mat-form-field>
     </div>
     <div class="form-group">

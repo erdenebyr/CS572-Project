@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   postForm: FormGroup;
   loading = false;
   submitted = false;
+ 
+  isOn = true;
 
   constructor(
     private router: Router, 

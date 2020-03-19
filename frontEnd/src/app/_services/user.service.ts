@@ -40,4 +40,7 @@ export class UserService {
     getPersonalInfo(username: String){
         return this.http.get(environment.baseURL + `/` + username);
     }
+    updatePersonalInfo(user: User){
+        return this.http.post(environment.baseURL + `/edit`, user);
+    }
 }
